@@ -1,0 +1,38 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#wrapper{
+    height: 100vh;
+    overflow-x: hidden; /* taki right&left m scroll na ho */
+    overflow-y: auto;   /* but up & down m scroll ho */
+    perspective: 10px; /* z-axis m kam krne k liye perspective liya, but yha konsi value deni h usse koii frk nhi pdne wala, 10px do ya 100px */
+}
+
+.container{
+    position: relative; /*jb me image ko absolute krunga to wo apne nearest static ko dhundti h, esliye mene ese yha relative kra h*/
+    display: flex;
+    justify-content: center; /*taki element centre m place ho jaye*/
+    align-items: center; /*taki element centre m place ho jaye*/
+    height: 100%;
+    transform-style: preserve-3d; /*bina eske 3d behaviour nhi aa payga*/
+}
+
+.background{
+    transform: translateZ(-40px) scale(5);   /*image dur chli gyi h mujse, choti nhi hui h, esliye us choti image ko bda krne k liye mene scale use kra*/
+}
+
+.foreground{
+    transform: translateZ(-20px) scale(3);
+}
+
+.background, .foreground{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1; /*overlapping k liye, konsi image kiske upr aaygi*/
+    /* object-fit: cover; */
+}
